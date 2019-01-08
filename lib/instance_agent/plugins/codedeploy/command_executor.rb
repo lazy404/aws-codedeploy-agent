@@ -396,6 +396,8 @@ module InstanceAgent
                 zipfile.extract(f, file_dst)
               end
             end
+            # Force garbage collection to keep memory usage low
+            GC.start
           else
             # If the bundle was a generated through a Sabini Repository
             # it will be in tar format, and it won't have a bundle type
